@@ -1,1 +1,3 @@
-function initQuiz() {}
+function initQuiz() {
+    
+}
