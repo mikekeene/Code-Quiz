@@ -187,8 +187,8 @@ highscoreButtonEl.addEventListener("click",function() {
     }
 });
 
-function loadQuestions() {
-    const questions = [
+// function loadQuestions() {
+    var questions = [
         {
             title: "Question 1: Commonly used data types DO NOT include:",
             choices: ["strings", "booleans", "alerts", "numbers"],
@@ -215,7 +215,7 @@ function loadQuestions() {
             answer: "||"
         }
     ];
-};
+// };
 // loadQuestions();
 
 }
