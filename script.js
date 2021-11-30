@@ -1,9 +1,5 @@
 function initQuiz() {
-    //  Initialize "time remaining" variable
         let timeRemaining=0;
-    
-        
-    //  Clicking the "Start Quiz" button starts the quiz, hides the landing container, and displays the quiz container
         const startButtonEl = document.getElementById("start-button");
         const timeRemainingEl = document.getElementById("time-remaining");
         const finalScoreEl = document.getElementById("final-score");
@@ -18,10 +14,7 @@ function initQuiz() {
         if (JSON.parse(localStorage.getItem('scores')) !== null) {
             highScores = JSON.parse(localStorage.getItem("scores"));
         }
-    
         function startQuiz() {
-            
-            
             landingContainerEl.setAttribute("class","container d-none");
             let rowEl = null;
             let colEl = null;
@@ -79,11 +72,9 @@ function initQuiz() {
                     let rowEl = document.createElement("div");
                     rowEl.setAttribute("class","row mb-1");
                     colEl.append(rowEl);
-
                     let colEl2 = document.createElement("div");
                     colEl2.setAttribute("class","col-12");
                     rowEl.append(colEl2);
-
                     buttonEl = document.createElement("button");
                     buttonEl.setAttribute("class","btn btn-primary");
                     buttonEl.setAttribute("type","button");
@@ -99,11 +90,9 @@ function initQuiz() {
                         let rowEl = document.createElement("div");
                         rowEl.setAttribute("class","row border-top");
                         colEl.append(rowEl);
-
                         colEl = document.createElement("div");
                         colEl.setAttribute("class","col-12");
                         rowEl.append(colEl);
-
                         let parEl = document.createElement("p");
                         colEl.append(parEl);
                         if (this.innerHTML === questions[currentQuestion - 1].answer) {
@@ -142,7 +131,6 @@ function initQuiz() {
                         },2000);
                     });
                 }   
-
             }
             function saveHighScore() {
                 let initialsEl = document.getElementById("initials-entry");
@@ -156,12 +144,9 @@ function initQuiz() {
                 localStorage.setItem("scores",JSON.stringify(highScores));
             }
             submitButtonEl.addEventListener("click",saveHighScore);
-            
             generateQuestion(currentQuestion);
         }
-
         startButtonEl.addEventListener("click",startQuiz);
-
         highscoreButtonEl.addEventListener("click",function() {
             landingContainerEl.setAttribute("class","container d-none");
             quizContainerEl.setAttribute("class","container d-none");
@@ -181,10 +166,7 @@ function initQuiz() {
                 parEl.innerHTML = "Initials: " + highScores[i].initials + "   Score: " + highScores[i].highScore;
                 colEl2.append(parEl);
             }
-        });
-       
-    
-    
+        });    
     }
     const questions = [
         {
@@ -214,4 +196,3 @@ function initQuiz() {
         }
     ];      
 initQuiz();
-
